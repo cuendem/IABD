@@ -94,7 +94,15 @@ def countRemainingShips(board):
 
 def playerTurn():
     print("Your turn...")
-    coordinates = list(map(int, input("Which cell do you want to hit? Input it as X,Y (Ex: 2,3 or 7,0): ").replace(' ','').split(',')))
+    validMove = False
+    while not validMove:
+        try:
+            coordinates = list(map(int, input("Which cell do you want to hit? Input it as X,Y (Ex: 2,3 or 7,0): ").replace(' ','').split(',')))
+            if not coordinates[0] in range(rows) or not coordinates[1] in range(cols):
+                raise ValueError
+            validMove = True
+        except:
+            print("Invalid move!")
     print()
 
     if enemyBoard[coordinates[1]][coordinates[0]] == '.':

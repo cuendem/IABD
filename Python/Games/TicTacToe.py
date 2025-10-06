@@ -14,11 +14,13 @@ def playerPlay():
 
     validPlay = False
     while not validPlay:
-        coordinates = list(map(int, input("Which cell do you want to mark? Input it as X,Y (Ex: 0,1 or 2,0): ").replace(' ','').split(',')))
-        if board[coordinates[1]][coordinates[0]] != " ":
+        try:
+            coordinates = list(map(int, input("Which cell do you want to mark? Input it as X,Y (Ex: 0,1 or 2,0): ").replace(' ','').split(',')))
+            if board[coordinates[1]][coordinates[0]] != " ":
+                raise ValueError
+            validPlay = True
+        except:
             print("That play is invalid!")
-            continue
-        validPlay = True
 
     board[coordinates[1]][coordinates[0]] = playerIcon
     printBoard()
