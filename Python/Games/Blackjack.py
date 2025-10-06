@@ -253,7 +253,7 @@ def checkTable():
 
     if playerStood and dealerStood:
         if playerScore > dealerScore:
-            print(f"Your {playerScore} points win against the dealer's {dealerScore}! You win {bet*2}!")
+            print(f"Your {playerScore} points win against the dealer's {dealerScore}! You win {bet*2}€!")
             return True, bet*2
         elif playerScore < dealerScore:
             print(f"The dealer's {dealerScore} points beat your {playerScore}! You lose!")
@@ -269,6 +269,10 @@ def checkTable():
 
 def main():
     global money, bet
+
+    initialMoney()
+    initialDeal()
+
     while True:
         while not playerBusted and not playerStood and not playerBlackjack and not playerSurrendered:
             playerTurn()
@@ -284,6 +288,5 @@ def main():
             print("See you soon!")
             break
 
-initialMoney()
-initialDeal()
-main()
+if __name__ == '__main__': 
+    main()

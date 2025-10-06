@@ -138,6 +138,10 @@ def checkEnd():
     return countRemainingShips(enemyBoard) == 0 or countRemainingShips(playerBoard) == 0
 
 def main():
+    setupShips(enemyBoard)
+    setupShips(playerBoard)
+    printBoards()
+
     while True:
         playerTurn()
         enemyTurn()
@@ -149,7 +153,5 @@ def main():
     else:
         print("You lost...")
 
-setupShips(enemyBoard)
-setupShips(playerBoard)
-printBoards()
-main()
+if __name__ == '__main__': 
+    main()
