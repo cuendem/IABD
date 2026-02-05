@@ -1,0 +1,22 @@
+# Para ejecutar este fichero .yaml:
+#  1. Guardar el archivo como postgres_compose.yaml 
+#  2. Navegar hasta el directorio desde la cmd
+#  3. Ejecutar docker compose -f postgres_compose.yaml up -d
+
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: postgres_reign_company
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: reign
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
